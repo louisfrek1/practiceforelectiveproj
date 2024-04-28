@@ -20,3 +20,149 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.container {
+    width: 680px;
+}
+
+.center {
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+    justify-self: center;
+    place-items: middle;
+    vertical-align: middle;
+    line-height: 100%;
+    margin: auto;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.entryarea{
+    position: relative;
+    height: 80px;
+    display: flex;
+    line-height: 80px;
+}
+
+input{
+    position: absolute;
+    width: 100%;
+    outline: none;
+    font-size: 2.2em;
+    padding: 0 30px;
+    line-height: 80px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    background: transparent;
+    transition: 0.1s ease;
+    z-index: 1111;
+}
+
+.labelline{
+    position: absolute;
+    font-size: 1.6em;
+    color: #000000;
+    padding: 0 25px;
+    margin: 0 20px;
+    background-color: white;
+    transition: 0.2s ease;
+}
+
+input:focus,
+input:valid {
+    color: #66ff00;
+    border: 4px solid #66ff00;
+}
+
+input:focus + .labelline,
+input:valid + .labelline{
+    color: #66ff00;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+    transform: translate(-15px, -16px) scale(0.88);
+    z-index: 1111;
+}
+
+h2 {
+    position: relative;
+    font-size: 6em;
+    letter-spacing: 15px;
+    color: #ff0000;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0008);
+    line-height: 0.7em;
+    outline: none;
+    animation: animate 5s linear infinite;
+}
+
+.btn {
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+}
+
+.btn::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FFF;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+}
+
+.btn::before{
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #ff0000, #FF7300, #FFFB00, #48FF00,
+        #00FFD5, #002BFF, #FF00C8, #FF0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 0px;
+    opacity: 1;
+}
+
+@keyframes glowing{
+    0%{background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+.btn:hover::before{
+    opacity: 1;
+}
+
+.btn:active::after{
+    background: transparent;
+}
+
+.btn:active{
+    color: #000;
+    font-weight: bold;
+}
